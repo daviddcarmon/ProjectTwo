@@ -20,8 +20,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // require routes
-require(".routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+require("./controllers/html-routes.js")(app);
+require("./controllers/api-routes.js")(app);
 
 // sync our db and log messge to user upon success
 db.sequelize.sync().then(function () {
