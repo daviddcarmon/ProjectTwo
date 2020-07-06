@@ -30,6 +30,7 @@ $(document).ready(function () {
       .then(function () {
         window.location.replace("/index");
         // if there's an error, handle it by throwing a bootstrap alert
+        // WE ARE USING MATERIALIZE SO WHAT ERROR DO I THROW HERE?
       })
       .catch(handleLoginErr);
     console.log(err);
