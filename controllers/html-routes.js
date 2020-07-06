@@ -10,15 +10,15 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/harryapp");
     }
-    res.sendFile(path.join(__dirname, "../public/html/signup.html"));
+    res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
 
-  app.get("/login", (req, res) => {
+  app.get("/signup", (req, res) => {
     // if user already has account send them to harryapp page
     if (req.user) {
       res.redirect("/harryapp");
     }
-    res.sendFile(path.join(__dirname, "../public/html/login.html"));
+    res.sendFile(path.join(__dirname, "../public/html/signup.html"));
   });
 
   // add middleware to route. if user tries to access this route without a login they will be directed to the signup page
