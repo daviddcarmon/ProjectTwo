@@ -17,7 +17,7 @@ passport.use(
           username: username,
         },
       }).then(function (dbUser) {
-        // if there is no user with the given email
+        // if there is no user with the given username
         if (!dbUser) {
           return done(null, false, {
             message: "Incorrect username. Please try again!",
