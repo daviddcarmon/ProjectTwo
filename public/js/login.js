@@ -3,6 +3,8 @@ $(document).ready(function () {
   const usernameInput = $("input#username-input");
   const passwordInput = $("input#passport-input");
 
+  $('.parallax').parallax();
+
   // when form is submitted we validate username and password
   loginForm.on("submit", (event) => {
     event.preventDefault();
@@ -41,3 +43,5 @@ $(document).ready(function () {
     $("#alert").fadeIn(500);
   }
 });
+
+   
