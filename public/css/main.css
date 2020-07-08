@@ -1,3 +1,8 @@
-body {
-    background-color: yellow;
+/* body {
+    background-color: green;
+    
+} */
+
+.parallax-container {
+    background-image: url("BGimg/Deathlyhallows.jpg");
 }
