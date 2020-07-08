@@ -7,7 +7,7 @@ USE duelApp_db;
 CREATE TABLE characters(
     id int primary key,
     name varchar(50),
-    spell varchar(50),
+    health varchar(50),
     stats varchar(75)
 );
 
