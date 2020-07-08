@@ -6,7 +6,6 @@ USE duelApp_db;
 
 
 CREATE TABLE user(
-
     id int primary key,
     name varchar(50),
     username VARCHAR,
