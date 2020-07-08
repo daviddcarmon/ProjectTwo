@@ -8,11 +8,17 @@ $(document).ready(function () {
     }).then(function (res) {
       console.log(res);
       // returns names only
+
       let mapArray = res.map((res) => {
-        return res.name;
+        let health = Math.random() * 51 + 50;
+        let stat = Math.random() * 8 + 5;
+        return {
+          name: res.name,
+          health: health.toFixed(0),
+          stats: stat.toFixed(0),
+        };
       });
       console.log(mapArray);
-
 
       // returns if exists all values(array of objects) for "Slytherin"
       let filterArray = res.filter((res) => {
