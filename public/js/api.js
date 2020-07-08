@@ -6,8 +6,19 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (res) {
-      console.log(queryURL);
       console.log(res);
+      // returns names only
+      let mapArray = res.map((res) => {
+        return res.name;
+      });
+      console.log(mapArray);
+
+
+      // returns if exists all values(array of objects) for "Slytherin"
+      let filterArray = res.filter((res) => {
+        return (res.house = "Slytherin");
+      });
+      console.log(filterArray);
     });
   });
 });
