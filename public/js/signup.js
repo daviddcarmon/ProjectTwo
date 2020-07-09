@@ -43,4 +43,37 @@ $(document).ready(function () {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
+  // $(".modal").modal();
+  $(".dropdown").dropdown();
+
+  function createCharacters() {
+    const queryURL = "http://hp-api.herokuapp.com/api/characters/";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function (res) {
+      console.log(res);
+      // returns names only
+
+      let mapArray = res.map((res) => {
+        let health = Math.random() * 51 + 50;
+        let stat = Math.random() * 8 + 5;
+        return {
+          name: res.name,
+          health: health.toFixed(0),
+          stats: stat.toFixed(0),
+        };
+      });
+      console.log(mapArray);
+
+      for (var i = 0; i < mapArray.length; i++) {
+        var charList = $(".dropdown-item");
+        charList.append(mapArray[i].name);
+        $(".character-list").append(charList);
+      }
+    });
+  }
+
+  createCharacters();
 });
