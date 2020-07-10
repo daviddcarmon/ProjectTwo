@@ -1,4 +1,12 @@
 $(document).ready(function () {
+
+// MODAL
+$('#myModal').on('location.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+
+
   const loginForm = $("form.login");
   const usernameInput = $("input#username-input");
   const passwordInput = $("input#passport-input");

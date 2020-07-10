@@ -1,53 +1,110 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="./css/main.css"/>
 
-</head>
-<body>
     
-    <div class="parallax-container">
-      <div class="parallax"></div>
-      </div>
-      </div>
-      <div class="section">
-        <div class="row container">
-          <h2 class="header">Expelliarmus</h2>
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input
-                    placeholder="Placeholder"
-                    id="first_name"
-                    type="text"
-                    class="validate"
-                  />
-                  <label for="username">UserName</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="password" type="text" class="validate" />
-                  <label for="password">Password</label>
-                </div>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <title>Harry Potter Front Page</title>
+  </head>
+  
+  <body id="page-top">
+   
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Expelliarmus</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">Welcome to the Wizarding World.</h2>
+                <a class="btn btn-primary js-scroll-trigger" href="">Alohamora</a>
+                <!-- create a modal to log in when clicking get started.  -->
+                <a class="btn btn-primary js-scroll-trigger" href="signup.html">Enroll in class</a>
+
+
+
+
+
+  <!-- MODAL -->
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Launch demo modal
+        </button> -->
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Log</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-            </form>
+              <div class="modal-body">
+                <h1>TEST</h1>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
           </div>
         </div>
+
+
+
+                
+
+            </div>
         </div>
-      
-      <div class="parallax-container">
-        <div class="parallax"></div>
-      </div>
-    <script src="./js/login.js"></script>
+    </header>
+
+
+
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-white mb-4">How to play</h2>
+                    <p class="text-white-50">
+                        Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
+                        <a href="https://startbootstrap.com/template-overviews/grayscale/">the preview page</a>
+                        . The theme is open source, and you can use it for any purpose, personal or commercial.
+                    </p>
+                </div>
+            </div>
+            <img class="img-fluid" src="assets/img/ipad.png" alt="" />
+        </div>
+    </section>
+    
+
+
+
+
+
+    <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright © Your Website 2020</div></footer>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/api.js"></script>
   </body>
 </html>
-
-
