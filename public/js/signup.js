@@ -68,18 +68,13 @@ $(document).ready(function () {
           stats: stat.toFixed(0),
         };
       });
-      // console.log(mapArray);
-
-      let charArray = [];
+      console.log(mapArray);
 
       for (var i = 0; i < mapArray.length; i++) {
         var charList = $(".dropdown-item");
-        charArray.push(mapArray[i].name);
-        console.log(charArray);
+        charList.append(mapArray[i].name);
         $(".character-list").append(charList);
       }
-
-      // push loop to empty array and then that array is being appended to the charlist dropdown
     });
   }
 
