@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $(function () {
-    const queryURL = "http://hp-api.herokuapp.com/api/characters/";
+    const queryURL = "http://hp-api.herokuapp.com/api/characters";
 
     $.ajax({
       url: queryURL,
@@ -18,11 +18,11 @@ $(document).ready(function () {
           stats: stat.toFixed(0),
         };
       });
-      console.log(mapArray);
+      // console.log(mapArray);
 
       // returns if exists all values(array of objects) for "Slytherin"
       let filterArray = res.filter((res) => {
-        return (res.house = "Slytherin");
+        return res.house;
       });
       console.log(filterArray);
     });
