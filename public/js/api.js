@@ -13,7 +13,7 @@ $(document).ready(function () {
       });
       console.log(mapArray);
 
-
+// this is my comment 
       // returns if exists all values(array of objects) for "Slytherin"
       let filterArray = res.filter((res) => {
         return (res.house = "Slytherin");
