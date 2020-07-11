@@ -46,6 +46,7 @@ $(document).ready(function () {
 
   // create character list api call for drop down
 
+
   let dropdown = $(".dropdown-menu").on("click", () => {
     // var value = $(this).val();
     // $(".dropdown-item btn").filter("selected", function (index) {
@@ -62,6 +63,7 @@ $(document).ready(function () {
       console.log(nameTest);
     });
   });
+
 
   function createCharacters() {
     const queryURL = "http://hp-api.herokuapp.com/api/characters/";
@@ -82,6 +84,7 @@ $(document).ready(function () {
           stats: stat.toFixed(0),
         };
       });
+
       $.each(mapArray, function (val, text) {
         console.log({ val, text });
         dropdown.append(

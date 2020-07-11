@@ -25,6 +25,35 @@ $(document).ready(function () {
         return res.house;
       });
       console.log(filterArray);
+
+      /// dummy button and display code
+      let button = $("<button>")
+        .attr({ class: "btn", id: "test" })
+        .text("button");
+      $(".test").append(button);
+
+      $(button).on("click", (event) => {
+        event.preventDefault();
+        let characters;
+
+        for (characters of mapArray) {
+          console.log({ characters });
+          let card = $("<div>").attr({ class: "card", id: characters.name });
+          let img = $("<img>").attr("src", characters.image);
+          let nameTxt = characters.name;
+          let name = $("<div>").text(nameTxt);
+          let statsTxt = characters.stats;
+          let stats = $("div").text(statsTxt);
+
+          $(".img").append(card);
+          card.append(img, name, stats);
+        }
+
+        // DONT THINK THIS IS NEEDED
+        // filterArray.forEach((image) => {
+        //   $(".img").append(img.attr("src", filterArray.image));
+        // });
+      });
     });
   });
 });
