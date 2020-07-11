@@ -65,14 +65,14 @@ $(document).ready(function () {
   });
 
 
-  function createCharacters() {
-    const queryURL = "http://hp-api.herokuapp.com/api/characters/";
+  // function createCharacters() {
+  //   const queryURL = "http://hp-api.herokuapp.com/api/characters/";
 
-    $.ajax({
-      url: queryURL,
-      method: "GET",
-    }).then(function (res) {
-      console.log(res);
+  //   $.ajax({
+  //     url: queryURL,
+  //     method: "GET",
+  //   }).then(function (res) {
+  //     console.log(res);
       // returns names only
 
       let mapArray = res.map((res) => {
@@ -105,9 +105,9 @@ $(document).ready(function () {
       //   $(".character-list").append(JSON.parse(charList));
       // }
     });
-  }
+  
 
-  createCharacters();
+
 });
 
-// DUMMY COMMIT
+
