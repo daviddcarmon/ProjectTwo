@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 // MODAL
-$('#myModal').on('location.modal', function () {
+$('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
 

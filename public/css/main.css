@@ -1,107 +1,3 @@
-/* .dropdown-content {
-  width: max-content !important;
-  height: auto !important;
-}
-
-
-
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; 
-  background-color: #fff;
-  border: .05rem solid #fff;
-}
-
-
-
-html,
-body {
-  height: 100%;
-  background-color: #333;
-}
-
-body {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-}
-
-.cover-container {
-  max-width: 42em;
-}
-
-
-
-.masthead {
-  margin-bottom: 2rem;
-}
-
-.masthead-brand {
-  margin-bottom: 0;
-}
-
-.nav-masthead .nav-link {
-  padding: .25rem 0;
-  font-weight: 700;
-  color: rgba(255, 255, 255, .5);
-  background-color: transparent;
-  border-bottom: .25rem solid transparent;
-}
-
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
-}
-
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-}
-
-.nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
-}
-
-
-
-.cover {
-  padding: 0 1.5rem;
-}
-.cover .btn-lg {
-  padding: .75rem 1.25rem;
-  font-weight: 700;
-}
-
-
-
-.mastfoot {
-  color: rgba(255, 255, 255, .5);
-}
-
- */
 
 
 
@@ -2545,7 +2441,7 @@ body {
   .btn {
     display: inline-block;
     font-weight: 400;
-    color: #212529;
+    color: #163f68;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
@@ -2585,14 +2481,14 @@ body {
   }
   
   .btn-primary {
-    color: #fff;
-    background-color: #64a19d;
-    border-color: #64a19d;
+    color: rgb(231, 217, 255);
+    background-color: #470107;
+    border-color: #c95000;
   }
   .btn-primary:hover {
-    color: #fff;
-    background-color: #548b87;
-    border-color: #4f837f;
+    color: rgb(219, 0, 0);
+    background-color: #000000;
+    border-color: #01534c;
   }
   .btn-primary:focus, .btn-primary.focus {
     color: #fff;
@@ -10323,12 +10219,24 @@ body {
     height: auto;
     min-height: 35rem;
     padding: 15rem 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("../assets/img/bg-masthead.jpg");
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("BGimg/HPBG.gif");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
   }
+
+
+
+
+
+
+
+
+
+
+
+
   .masthead h1 {
     font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 2.5rem;
@@ -10459,3 +10367,22 @@ body {
   .footer {
     padding: 5rem 0;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* MODAL FORM */
+  
