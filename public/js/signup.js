@@ -46,7 +46,6 @@ $(document).ready(function () {
 
   // create character list api call for drop down
 
-
   let dropdown = $(".dropdown-menu").on("click", () => {
     // var value = $(this).val();
     // $(".dropdown-item btn").filter("selected", function (index) {
@@ -64,15 +63,14 @@ $(document).ready(function () {
     });
   });
 
+  function createCharacters() {
+    const queryURL = "http://hp-api.herokuapp.com/api/characters/";
 
-  // function createCharacters() {
-  //   const queryURL = "http://hp-api.herokuapp.com/api/characters/";
-
-  //   $.ajax({
-  //     url: queryURL,
-  //     method: "GET",
-  //   }).then(function (res) {
-  //     console.log(res);
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function (res) {
+      console.log(res);
       // returns names only
 
       let mapArray = res.map((res) => {
@@ -87,27 +85,28 @@ $(document).ready(function () {
 
       $.each(mapArray, function (val, text) {
         console.log({ val, text });
-        dropdown.append(
-          $("<btn></btn>")
+        //dropdown.append(
+        $(".character-list").append(
+          $("<option></option")
             .text(text.name)
-            .attr({ class: "dropdown-item", value: this.name })
+            .attr("health", text.health)
+            .attr("stats", text.stats)
+          // .attr({ class: "dropdown-item", value: this.name })
         );
       });
-      // console.log(mapArray);
-      // $(".character-list").append(JSON.parse(mapArray.name));
+      console.log(mapArray);
+      $(".character-list").append(JSON.parse(mapArray.name));
 
-      // for (var i = 0; i < mapArray.length; i++) {
-      //   var charList = $(".dropdown-item");
-      //   charList.append(mapArray[i].name);
+      for (var i = 0; i < mapArray.length; i++) {
+        var charList = $(".dropdown-item");
+        charList.append(mapArray[i].name);
 
-      //   // take character list and create new variable and parse out array
+        // take character list and create new variable and parse out array
 
-      //   $(".character-list").append(JSON.parse(charList));
-      // }
+        $(".character-list").append(JSON.parse(charList));
+      }
     });
-  
+  }
 
-
+  createCharacters();
 });
-
-
