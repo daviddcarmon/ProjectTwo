@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  // in user model need to have first and last characters to set up post request for user signup if you want to add that.
+  // Set up in front-end already
+
   // getting references to our form and input
   const signUpForm = $("form.signup");
   const emailInput = $("input#email-input");
