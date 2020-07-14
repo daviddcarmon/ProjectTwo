@@ -43,17 +43,34 @@ $(document).ready(function () {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
-  // $(".modal").modal();
-  $(".dropdown").dropdown();
 
-  // function createCharacters() {
-  //   const queryURL = "http://hp-api.herokuapp.com/api/characters/";
+  // create character list api call for drop down
 
-  //   $.ajax({
-  //     url: queryURL,
-  //     method: "GET",
-  //   }).then(function (res) {
-  //     console.log(res);
+  let dropdown = $(".dropdown-menu").on("click", () => {
+    // var value = $(this).val();
+    // $(".dropdown-item btn").filter("selected", function (index) {
+    //   var nameTest = $(this).toggle($(this).text().indexOf(value) > -1);
+    //   console.log(nameTest);
+    // });
+  });
+
+  $("dropdown-item").on("click", () => {
+    var value = $(this).val();
+    $(".dropdown-item btn").filter("selected", function (index) {
+      var nameTest = $(this).toggle($(this).text().indexOf(value) > -1);
+
+      console.log(nameTest);
+    });
+  });
+
+  function createCharacters() {
+    const queryURL = "http://hp-api.herokuapp.com/api/characters/";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function (res) {
+      console.log(res);
       // returns names only
 
       let mapArray = res.map((res) => {
@@ -65,15 +82,31 @@ $(document).ready(function () {
           stats: stat.toFixed(0),
         };
       });
+
+      $.each(mapArray, function (val, text) {
+        console.log({ val, text });
+        //dropdown.append(
+        $(".character-list").append(
+          $("<option></option")
+            .text(text.name)
+            .attr("health", text.health)
+            .attr("stats", text.stats)
+          // .attr({ class: "dropdown-item", value: this.name })
+        );
+      });
       console.log(mapArray);
+      $(".character-list").append(JSON.parse(mapArray.name));
 
       for (var i = 0; i < mapArray.length; i++) {
         var charList = $(".dropdown-item");
         charList.append(mapArray[i].name);
-        $(".character-list").append(charList);
+
+        // take character list and create new variable and parse out array
+
+        $(".character-list").append(JSON.parse(charList));
       }
     });
-  
+  }
 
   createCharacters();
-
+});
