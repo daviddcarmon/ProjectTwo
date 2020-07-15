@@ -13,4 +13,7 @@ $(document).ready(function () {
   $('#openModal').on('shown.bs.modal', function () {
     $('#hpModal').trigger('focus')
   })
+
+  // select target html elements
+  // create the html elements with handlebars (????)
 });
