@@ -2441,65 +2441,7 @@
 
 
   /* TEST CODE */
-  /* .glow-on-hover {
-    width: 220px;
-    height: 50px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-}
-
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
-
-.glow-on-hover:active {
-    color: #000
-}
-
-.glow-on-hover:active:after {
-    background: transparent;
-}
-
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
-
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #111;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-}
-
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
-} */
+  
   /* TEST CODE */
 
   
@@ -2577,6 +2519,72 @@
     box-shadow: 0 0 0 0.2rem rgba(123, 175, 172, 0.5);
   }
   
+
+/* GLOW BUTTON */
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: rgb(136, 49, 94);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 20px;
+  opacity: .6;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(90deg, #3a0707, #681500, #023d00, #012b0b, #011308, #050044, #012b38, #5c0101, #2e0200);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(7px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 30s linear infinite;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  background: transparent;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 200% 0; }
+}
+/* GLOW BUTTON */
+
+
+
+
   .btn-secondary {
     color: #fff;
     background-color: #6c757d;
@@ -10278,10 +10286,23 @@
     text-transform: uppercase;
     letter-spacing: 0.15rem;
     border: 0;
+    opacity: 0;
+    animation: fadein 6s;
+    animation-name: mainBtn;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
   }
   
 
-
+  @keyframes mainBtn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
 
 
 
@@ -10341,13 +10362,14 @@
     max-width: 20rem;
     font-size: 1rem;
     opacity: 0;
-   -webkit-animation: fadein 6s;
+    animation: fadein 6s;
+    animation-name: headerFade;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
     
   }
 
-  @-webkit-keyframes fadeIn {
+  @keyframes headerFade {
     from {
       opacity: 0;
     }
@@ -10384,12 +10406,12 @@
   /* BUTTONS */
 
   #openBtn {
-    color: white;
+    color: rgb(136, 49, 94);
   }
 
-}
+
 #openBtn:hover {
-  color: blue;
+  color: rgb(92, 160, 223);
   background-color: #011525;
   border-color: #01534c;
 }
