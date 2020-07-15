@@ -1,3 +1,7 @@
+
+
+
+
 $(document).ready(function () {
 
 // MODAL
@@ -10,8 +14,6 @@ $('#myModal').on('shown.bs.modal', function () {
   const loginForm = $("form.login");
   const usernameInput = $("input#username-input");
   const passwordInput = $("input#passport-input");
-
-  $('.parallax').parallax();
 
   // when form is submitted we validate username and password
   loginForm.on("submit", (event) => {
@@ -45,6 +47,9 @@ $('#myModal').on('shown.bs.modal', function () {
       .catch(handleLoginErr);
     console.log(err);
   }
+
+ 
+
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);

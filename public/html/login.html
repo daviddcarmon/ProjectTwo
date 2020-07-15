@@ -45,7 +45,7 @@
           <a
             class="btn btn-primary js-scroll-trigger"
             data-toggle="modal"
-            data-target="#myModal"
+            data-target="#myModal" id="openBtn"
             >Alohamora</a
           >
           <a class="btn btn-primary js-scroll-trigger" href="signup"
@@ -69,7 +69,7 @@
                             <input
                               type="text"
                               name="name"
-                              class="form-control my-input"
+                              class="form-control my-input responsive-img"
                               id="name"
                               placeholder="Username"
                             />
@@ -78,7 +78,7 @@
                             <input
                               type="email"
                               name="email"
-                              class="form-control my-input"
+                              class="form-control my-input responsive-img"
                               id="pw"
                               placeholder="Password"
                             />
@@ -86,13 +86,10 @@
 
                           <!-- NEED TO ROUTE TO HARRYAPP -->
                           <div class="text-center">
-                            <button
-                              type="submit"
-                              class="btn btn-block send-button tx-tfm"
-                              href="harryapp.html"
-                            >
-                              Login
-                            </button>
+                            <a class="btn btn-primary js-scroll-trigger" href="harryapp"
+                            id="loginBtn"
+                            >Submit</a
+                          >
                           </div>
                         </form>
                       </div>
@@ -126,7 +123,6 @@
             </p>
           </div>
         </div>
-        <img class="img-fluid" src="assets/img/ipad.png" alt="" />
       </div>
     </section>
 
@@ -139,6 +135,8 @@
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
