@@ -10213,6 +10213,28 @@
     border: 0;
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MASTER HEADER */
+
+
+
   .masthead {
     position: relative;
     width: 100%;
@@ -10225,15 +10247,6 @@
     background-attachment: scroll;
     background-size: cover;
   }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -10273,6 +10286,16 @@
     }
   }
   
+
+  /* BUTTONS */
+
+  #openBtn {
+    color: rgba(225, 210, 247);
+  }
+
+
+
+
   .about-section {
     padding-top: 10rem;
     background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
@@ -10386,3 +10409,4 @@
 
   /* MODAL FORM */
   
+ 
