@@ -4,8 +4,28 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
+    },
+    health: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      default: 100,
+    },
+    attack: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: false,
+      default: () => {
+        return Math.random();
+      },
     },
   });
+  Character.associate = (models) => {
+    Character.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+  };
   return Character;
 };
