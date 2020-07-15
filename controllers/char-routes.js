@@ -13,10 +13,29 @@ module.exports = function (app) {
   //   });
   //GET route for displaying all characters
   app.get("/char/character/", function (req, res) {
-    db.POST.findAll({}).then(function (dbPost) {
-      res.json(dbPost);
+    db.Character.findAll({}).then(function (dbCharacter) {
+      res.json(dbCharacter);
     });
   });
 
-  //GET route for
+  // add a new character
+  app.post("/char/character/", function (req, res) {
+    console.log(req.name);
+    db.Character.create({
+      name: req.body.name,
+    }).then(function (dbCharacter) {
+      res.json(dbCharacter);
+    });
+  });
+
+  //Delete Character
+  app.delete("/char/character/:id", function (req, res) {
+    db.Character.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function (dbCharacter) {
+      res.json(dbCharacter);
+    });
+  });
 };
