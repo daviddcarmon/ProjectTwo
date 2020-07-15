@@ -4,4 +4,7 @@ $(document).ready(function () {
     console.log(data);
     // $(".username-name").text(data.username);
   });
+
+  // select target html elements
+  // create the html elements with handlebars (????)
 });
