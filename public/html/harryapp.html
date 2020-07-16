@@ -34,148 +34,18 @@
 
   <body id="page-top">
     <!-- Masthead-->
-    <header class="masthead">
-      <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-          <h1 class="mx-auto my-0 text-uppercase">Expelliarmus</h1>
-          <h2 class="text-white-50 mx-auto mt-2 mb-5">
-            Welcome to the Wizarding World.
-          </h2>
-          <a
-            class="btn btn-primary js-scroll-trigger"
-            data-toggle="modal"
-            data-target="#hpModal"
-            >Alohamora</a
-          >
-          <!-- create a modal to log in when clicking get started.  -->
-          <a class="btn btn-primary js-scroll-trigger" href="signup"
-            >Enroll in class</a
-          >
-
-          <!-- MODAL -->
-          <div id="hpModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">HAPPY POTTER MOA</h4>
-                </div>
-                <div class="modal-body">
-                  <div class="row">
-                    <div class="col-md-4 mx-auto">
-                      <div class="myform form">
-                        <form name="login">
-                          <div class="form-group">
-                            <input
-                              type="text"
-                              class="form-control my-input"
-                              id="name"
-                              placeholder="Username"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <input
-                              type="password"
-                              class="form-control my-input responsive-img"
-                              id="exampleInputPassword1 pw"
-                              placeholder="Password"
-                            />
-                          </div>
-
-                          <!-- NEED TO ROUTE TO HARRYAPP -->
-                          <div class="text-center">
-                            <button
-                              class="btn btn-block tx-tfm"
-                              id="hpSubmit"
-                              href="harryapp"
-                            >
-                              Login
-                            </button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-default"
-                    data-dismiss="modal"
-                  >
-                    End of class
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal -->
-          <div
-            class="modal fade"
-            id="exampleModalCenter"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Log</h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <h1>TEST</h1>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- About-->
-    <section class="about-section text-center" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-white mb-4">How to play</h2>
-            <p class="text-white-50">
-              Grayscale is a free Bootstrap theme created by Start Bootstrap. It
-              can be yours right now, simply download the template on
-              <a href="https://startbootstrap.com/template-overviews/grayscale/"
-                >the preview page</a
-              >
-              . The theme is open source, and you can use it for any purpose,
-              personal or commercial.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer bg-black small text-center text-white-50">
-      <div class="container">Copyright © Your Website 2020</div>
-    </footer>
+    <!-- DROPDOWN BUTTON -->
+    <form action="">
+      <select class="charList" name="test" id="">
+        <option value="" selected>Select</option>
+      </select>
+    </form>
+    <div class="ranBtn">
+    </div>
+    <div class="winner"></div>
+    <div class="userChar"></div>
+    <div class="randChar"></div>
+    <div class="play"></div>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -194,7 +64,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/harryapp.js"></script>
-    <!-- <script src="../js/api.js"></script> -->
+    <script src="../js/api.js"></script>
     <script src="../js/login.js"></script>
   </body>
 </html>
