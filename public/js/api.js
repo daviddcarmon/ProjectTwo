@@ -1,4 +1,31 @@
 $(document).ready(function () {
+  // needs to come from database $(".userChar")
+  //SELECT * FROM Characters JOIN Users ON Characters.Userid = Users.Id WHERE Users.Id = ?
+  // NEED TO CAPTURE IMG URL TO DATABASE
+
+  function getUserChar() {
+    $.get("/api/character/:id", function (data) {
+      if (data) {
+        console.log(data);
+        let card = $("<section>").attr({
+          class: "card col-md-4",
+          id: data.name,
+        });
+        let name = $("<div>").attr({ class: "userName" }).val(data.name);
+        let health = $(".userHealth")
+          .attr({ class: "userHealth" })
+          .val(data.health);
+        let attack = $(".userAttack")
+          .attr({ class: "userAttack" })
+          .val(data.attack);
+
+        card.append(name, health, attack);
+        $(".userChar").append(card);
+      }
+    });
+  }
+  // getUserChar();
+
   $(function () {
     const queryURL = "http://hp-api.herokuapp.com/api/characters";
 
@@ -34,7 +61,7 @@ $(document).ready(function () {
         let healthTxt = `Health: ${player.health}`;
         let health = $("<div>").text(healthTxt).attr({ class: "randomHealth" });
         let img = $("<img>").attr("src", player.image);
-        let card = $("<div>").attr({
+        let card = $("<section>").attr({
           class: "card col-md-4",
           id: player.name,
         });
@@ -125,16 +152,6 @@ $(document).ready(function () {
         $(".randChar").empty();
         $(".play").empty();
         $(".play").append(playBtn);
-
-        // needs to come from database $(".userChar")
-        //SELECT * FROM Characters JOIN Users ON Characters.Userid = Users.Id WHERE Users.Id = ?
-        function getUserChar() {
-          $.get("/api/character/:id", function (data) {
-            $(".userChar").val(data.name);
-            $(".userHealth").val(data.health);
-            $(".userAttack").val(data.attack);
-          });
-        }
 
         displayCharacter(randomChar);
 
