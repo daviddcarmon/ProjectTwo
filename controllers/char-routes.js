@@ -23,6 +23,8 @@ module.exports = function (app) {
     console.log(req.name);
     db.Character.create({
       name: req.body.name,
+      health: req.body.health,
+      attack: req.body.health,
     }).then(function (dbCharacter) {
       res.json(dbCharacter);
     });
