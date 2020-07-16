@@ -5,6 +5,7 @@ module.exports = function (app) {
   // if the user has valid login credentials, send them to index page, otherwise send them the err message
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.join(req.user);
+    //res.redirect("/harryapp");
   });
 
   // route for signing up a user. user's password is auto hashed and stored securely bc of how we configured our sequelize user model. if user created successfully, proceed to log the user in, otherwise send error
@@ -13,13 +14,19 @@ module.exports = function (app) {
       email: req.body.email,
       password: req.body.password,
       username: req.body.username,
-    })
-      .then(function () {
-        res.redirect(307, "/api/login");
-      })
-      .catch(function (err) {
-        res.status(401).json(err);
+    }).then(function (data) {
+      db.Character.create({
+        name: req.body.name,
+        health: 100,
+        attack: 10,
+        UserId: data.id,
+      }).then(function () {
+        res.redirect("/harryapp");
       });
+    });
+    // .catch(function (err) {
+    //   res.status(401).json(err);
+    // });
   });
   // route for logging user out
   app.get("/logout", function (req, res) {
