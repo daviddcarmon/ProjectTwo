@@ -1,4 +1,6 @@
 // create character model
+var Sequelize = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   var Character = sequelize.define("Character", {
     name: {
