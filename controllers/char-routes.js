@@ -1,5 +1,6 @@
 const db = require("../models/character.js");
-
+const express = require("express");
+const router = express.Router();
 // Character ROUTES
 
 // api - will GET users
@@ -15,6 +16,21 @@ module.exports = function (app) {
   app.get("/api/character/", function (req, res) {
     db.Character.findAll({}).then(function (dbCharacter) {
       res.json(dbCharacter);
+    });
+  });
+
+  router.get("/harryapp", function (req, res) {
+    db.Character.findOne({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function (dbCharacter) {
+      // console.log(dbCharacter);
+      let character = {
+        user: dbCharacter,
+      };
+      console.log(character);
+      res.render("index", character);
     });
   });
 

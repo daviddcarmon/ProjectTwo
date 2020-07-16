@@ -1,4 +1,31 @@
 $(document).ready(function () {
+  // needs to come from database $(".userChar")
+  //SELECT * FROM Characters JOIN Users ON Characters.Userid = Users.Id WHERE Users.Id = ?
+  // NEED TO CAPTURE IMG URL TO DATABASE
+
+  function getUserChar() {
+    $.get("/api/character/:id", function (data) {
+      if (data) {
+        console.log(data);
+        let card = $("<section>").attr({
+          class: "card col-md-4",
+          id: data.name,
+        });
+        let name = $("<div>").attr({ class: "userName" }).val(data.name);
+        let health = $(".userHealth")
+          .attr({ class: "userHealth" })
+          .val(data.health);
+        let attack = $(".userAttack")
+          .attr({ class: "userAttack" })
+          .val(data.attack);
+
+        card.append(name, health, attack);
+        $(".userChar").append(card);
+      }
+    });
+  }
+  // getUserChar();
+
   $(function () {
     const queryURL = "http://hp-api.herokuapp.com/api/characters";
 
@@ -7,17 +34,12 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (res) {
       console.log(res);
+      // let res = res;
 
       function selectedCharacter() {
         $(this).val();
+        $(this).attr("id");
       }
-
-      $(".charList").on("click", function (e) {
-        e.preventDefault();
-        let selectedChar = $(this).val();
-        console.log(selectedChar);
-      });
-
       // returns names only
 
       let mapArray = res.map((res) => {
@@ -37,24 +59,75 @@ $(document).ready(function () {
         let attackTxt = `Attack Power: ${player.attack}`;
         let attack = $("<div>").text(attackTxt);
         let healthTxt = `Health: ${player.health}`;
-        let health = $("<div>").text(healthTxt).attr({ class: "p1Health" });
+        let health = $("<div>").text(healthTxt).attr({ class: "randomHealth" });
         let img = $("<img>").attr("src", player.image);
-        let card = $("<div>").attr({
+        let card = $("<section>").attr({
           class: "card col-md-4",
           id: player.name,
         });
 
         card.append(img, name, health, attack);
-        $(".img").append(card);
-        return player;
+        $(".randChar").append(card);
       };
 
+      let index = Math.floor(Math.random() * 25);
+      let index2 = Math.floor(Math.random() * Math.random() * 25);
+      let randomChar = mapArray[index];
+      let playerTwoChar = mapArray[index2];
+
+      let playBtnStart = () => {
+        $("#play").on("click", () => {
+          // console.log(typeof randomChar.health);
+          let healthInt = parseInt(randomChar.health);
+          let attackInt = playerTwoChar.attack;
+          // console.log(typeof playerTwoChar.attack);
+          randomChar.health = parseInt(healthInt - attackInt);
+
+          if (randomChar.health <= 0) {
+            let winnerText = $("div>").text("WINNER!");
+            $(".winner").append(winnerText);
+          } else {
+            $(".randomHealth").empty();
+            $(".randomHealth").append(randomChar.health);
+          }
+        });
+      };
+
+      let playBtn = $("<button>")
+        .attr({ class: "btn", id: "play" })
+        .text("Play button");
+
+      // selected character to play
+      $(".charList").on("click", function (e) {
+        e.preventDefault();
+        $(".randChar").empty();
+        $(".play").empty();
+        $(".play").append(playBtn);
+        let selectedChar = $(this).val();
+        let selectImg = $(this).attr("class");
+        console.log(selectImg);
+        let objChar = {
+          name: selectedChar,
+          health: 100,
+          attack: Math.floor(Math.random() * 25) + 5,
+          image: res.image,
+        };
+        if (objChar.name === "") {
+          return;
+        } else {
+          console.log(objChar);
+
+          displayCharacter(objChar);
+          playBtnStart();
+        }
+      });
+
       $.each(mapArray, function (val, text) {
-        // console.log({ val, text });
+        console.log(typeof text.image);
         $(".charList").append(
           $("<option></option>").text(text.name).attr({
-            class: "dropdown-item btn",
-            href: this.name,
+            class: "listItem btn",
+            id: this.image,
             onchange: "selectedCharacter()",
           })
         );
@@ -69,76 +142,26 @@ $(document).ready(function () {
       let button = $("<button>")
         .attr({ class: "btn", id: "test" })
         .text("Randomize");
-      $(".test").append(button);
+      $(".ranBtn").append(button);
 
       $(button).on("click", (event) => {
         event.preventDefault();
         // getUserChar()
 
-        let index = Math.floor(Math.random() * 25);
-        let index2 = Math.floor(Math.random() * Math.random() * 25);
-        let playerOneChar = mapArray[index];
-        let playerTwoChar = mapArray[index2];
-
-        let playBtn = $("<button>")
-          .attr({ class: "btn", id: "play" })
-          .text("Play button");
         // clearing location where random character card is returned
-        $(".img").empty();
+        $(".randChar").empty();
         $(".play").empty();
         $(".play").append(playBtn);
 
-        // needs to come from database
-        function getUserChar() {
-          $.get("/api/user/:id", function (data) {
-            $(".userChar").val(data.name);
-            $(".userHealth").val(data.health);
-            $(".userAttack").val(data.attack);
-          });
-        }
+        displayCharacter(randomChar);
 
-        displayCharacter(playerOneChar);
+        // displayCharacter(playerTwoChar);
 
-        displayCharacter(playerTwoChar);
-
-        // let playerTwo = () => {
-        //   let nameTxt = `Name: ${playerTwoChar.name}`;
-        //   let name = $("<div>").text(nameTxt);
-        //   let attackTxt = `Attack Power: ${playerTwoChar.attacks}`;
-        //   let attacks = $("<div>").text(attackTxt);
-        //   let healthTxt = `Health: ${playerTwoChar.health}`;
-        //   let health = $("<div>").text(healthTxt);
-        //   let img = $("<img>").attr("src", playerTwoChar.image);
-        //   let card = $("<div>").attr({
-        //     class: "card col-md-4",
-        //     id: playerTwoChar.name,
-        //   });
-
-        //   card.append(img, name, health, attacks);
-        //   $(".img").append(card);
-        //   return playerTwoChar;
-        // };
-        // playerTwo();
-
-        let playBtnStart = () => {
-          $("#play").on("click", () => {
-            // console.log(typeof playerOneChar.health);
-            let healthInt = parseInt(playerOneChar.health);
-            let attackInt = playerTwoChar.attack;
-            // console.log(typeof playerTwoChar.attack);
-            playerOneChar.health = parseInt(healthInt - attackInt);
-
-            if (playerOneChar.health <= 0) {
-              let winnerText = $("div>").text("WINNER!");
-              $(".img").append(winnerText);
-            } else {
-              $(".p1Health").empty();
-              $(".p1Health").append(playerOneChar.health);
-            }
-          });
-        };
         playBtnStart();
       });
     });
   });
 });
+
+// make sure database function is connected to retrieve user's character to display the info
+// on selected character, need to select the id to display the image
