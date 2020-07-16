@@ -18,6 +18,17 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/character/:id", function(req, res) {
+    db.Character.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(dbCharacter) {
+        res.json(dbCharacter);
+      });
+  });
+
   // add a new character
   app.post("/api/character/", function (req, res) {
     console.log(req.name);

@@ -59,6 +59,7 @@
     color: #212529;
     text-align: left;
     background-color: #fff;
+
   }
   
   [tabindex="-1"]:focus:not(:focus-visible) {
@@ -221,6 +222,7 @@
   
   button {
     border-radius: 0;
+    
   }
   
   button:focus {
@@ -2009,10 +2011,10 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
+    color: #f59696;
+    background-color: rgb(253, 211, 162);
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px inset #153e46;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
@@ -2437,11 +2439,18 @@
       margin-bottom: 0;
     }
   }
+
+
+  /* TEST CODE */
+  
+  /* TEST CODE */
+
+  
   
   .btn {
     display: inline-block;
     font-weight: 400;
-    color: #163f68;
+    color: #00535394;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
@@ -2462,12 +2471,13 @@
     }
   }
   .btn:hover {
-    color: #212529;
     text-decoration: none;
+    transition: 1.3s;
+    opacity: 1;
   }
   .btn:focus, .btn.focus {
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(100, 161, 157, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(66, 3, 11, 0.25);
   }
   .btn.disabled, .btn:disabled {
     opacity: 0.65;
@@ -2480,36 +2490,105 @@
     pointer-events: none;
   }
   
-  .btn-primary {
-    color: rgb(231, 217, 255);
-    background-color: #470107;
-    border-color: #c95000;
-  }
+  a.btn-primary {
+    /* color: rgb(172, 0, 0); */
+    color: rgb(255, 149, 28);
+    font-size: 16px;
+    padding-bottom: 62px;
+    /* opacity: 1; */
+     }
+     
   .btn-primary:hover {
-    color: rgb(219, 0, 0);
-    background-color: #000000;
-    border-color: #01534c;
+    color: rgb(147, 203, 255);
+    background-color: transparent;
+    /* border-color: #01534c56; */
   }
-  .btn-primary:focus, .btn-primary.focus {
+  /* .btn-primary:focus, .btn-primary.focus {
     color: #fff;
     background-color: #548b87;
     border-color: #4f837f;
     box-shadow: 0 0 0 0.2rem rgba(123, 175, 172, 0.5);
-  }
-  .btn-primary.disabled, .btn-primary:disabled {
+  } */
+  /* .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
     background-color: #64a19d;
     border-color: #64a19d;
-  }
-  .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  } */
+  /* .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
     color: #fff;
     background-color: #4f837f;
     border-color: #4a7b78;
   }
   .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(123, 175, 172, 0.5);
-  }
+  } */
   
+
+/* GLOW BUTTON */
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: rgb(224, 0, 116);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 20px;
+  opacity: .6;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(to right, #1b0000, #023301, #011d00, #002020, #000b20, #012427, #614b02, #460000, #0a0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(7px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 30s linear infinite;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  background: transparent;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: .55;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 200% 0; }
+}
+/* GLOW BUTTON */
+
+
+
+
   .btn-secondary {
     color: #fff;
     background-color: #6c757d;
@@ -10211,10 +10290,23 @@
     text-transform: uppercase;
     letter-spacing: 0.15rem;
     border: 0;
+    opacity: 0;
+    animation: fadein 6s;
+    animation-name: mainBtn;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
   }
   
 
-
+  @keyframes mainBtn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
 
 
 
@@ -10259,11 +10351,39 @@
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
             background-clip: text;
+            animation: fadein 6s;
+            
   }
+
+    @keyframes fadein {
+      from { opacity: 0}
+      to   { opacity: 1}
+    }
+ 
+
+
   .masthead h2 {
     max-width: 20rem;
     font-size: 1rem;
+    opacity: 0;
+    animation: fadein 6s;
+    animation-name: headerFade;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    
   }
+
+  @keyframes headerFade {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+
   @media (min-width: 768px) {
     .masthead h1 {
       font-size: 4rem;
@@ -10290,8 +10410,102 @@
   /* BUTTONS */
 
   #openBtn {
-    color: rgba(225, 210, 247);
+    color: rgb(255, 149, 28);
+    font-size: large;
+    padding-bottom: 42px;
+    
   }
+
+
+#openBtn:hover {
+  color: rgb(92, 160, 223);
+  background-color: transparent;
+  /* border-color: #01534c; */
+}
+
+
+/* MODAL BUTTONS
+ */
+a#loginBtn {
+    color: rgb(82, 0, 0);
+    font-size: large;
+    transition: .5s;
+}
+a#loginBtn:hover {
+  text-decoration: none;
+  transition: .7s;
+  opacity: 1;
+  color: rgb(0, 107, 0);
+  opacity: 0;
+  font-size: larger;
+}
+
+
+button.btn.btn-default{
+  background: transparent;
+  color: rgb(255, 245, 218);
+}
+
+button.btn.btn-default:hover {
+  background-color: rgb(171, 49, 26);
+  opacity: .2;
+}
+
+
+
+
+div.text-center{
+  background: transparent;
+}
+
+div.modal-body{
+  background: url("https://c1.wallpaperflare.com/preview/710/448/967/paper-rustic-background.jpg") no-repeat center center fixed;
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+  background-size: auto;
+
+}
+div.modal-header {
+  background: url("BGimg/Welcome\ Back.png");
+  height: 70px;
+  width: 500px;
+  
+}
+
+.modal-content {
+  background: url("BGimg/Brick.png");
+}
+
+
+
+/* MODAL FORM */
+input#name.form-control {
+  background: transparent;
+  color: rgb(255, 232, 232);
+}
+
+input#name.form-control:hover {
+  background-color: rgba(230, 217, 144, 0.445);
+  color: rgb(255, 245, 218);
+
+}
+/* MODAL FORM */
+
+input#pw.form-control {
+  background: transparent;
+  color: white;
+}
+
+input#pw.form-control:hover {
+  background-color: rgba(230, 217, 144, 0.445);
+  color: rgb(255, 245, 218);
+
+}
+
+
+
+
 
 
 
