@@ -2,6 +2,8 @@ const express = require("express");
 const session = require("express-session");
 const passport = require("./config/passport");
 const handlebars = require("express-handlebars");
+const bodyParser = require("body-parser");
+
 // set up port and require models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
@@ -18,6 +20,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // handlebars
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));

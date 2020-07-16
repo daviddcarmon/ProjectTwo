@@ -41,18 +41,17 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/harryapp/", function (req, res) {
+  app.get("/harryapp/:id", function (req, res) {
     db.Character.findAll({
-      // where: {
-      //   id: req.params.id,
-      // },
+      where: {
+        id: req.params.id,
+      },
     }).then(function (dbCharacter) {
-      // console.log(dbCharacter);
-      // let character = {
-      //   user: dbCharacter,
-      // };
       console.log(dbCharacter);
-      res.render("index");
+      let character = {
+        user: dbCharacter,
+      };
+      res.render("index", character);
     });
   });
   // route for logging user out
