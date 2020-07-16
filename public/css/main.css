@@ -363,11 +363,24 @@
   }
   
   h2, .h2 {
-    font-size: 2rem;
+    font-size: 65px;
+    font-family: "Varela Round", sans-serif;
+    /* letter-spacing: 0.8rem; */
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
   }
   
   h3, .h3 {
     font-size: 1.75rem;
+    font-family: 'Calligraffitti', cursive;
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+    background: linear-gradient(rgb(253, 173, 82), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
   }
   
   h4, .h4 {
@@ -8112,6 +8125,7 @@
   .mr-auto,
   .mx-auto {
     margin-right: auto !important;
+    color: rgb(0, 110, 0);
   }
   
   .mb-auto,
@@ -8122,6 +8136,7 @@
   .ml-auto,
   .mx-auto {
     margin-left: auto !important;
+
   }
   
   @media (min-width: 576px) {
@@ -10426,6 +10441,7 @@
 
 /* MODAL BUTTONS
  */
+
 a#loginBtn {
     color: rgb(82, 0, 0);
     font-size: large;
@@ -10502,8 +10518,12 @@ input#pw.form-control:hover {
   color: rgb(255, 245, 218);
 
 }
-
-
+.modal.fade {
+  background-image: url("BGimg/HPbackground.png");
+  background-color: black;
+  opacity: 1;
+  transition: 1s ease-in;
+}
 
 
 
