@@ -3,29 +3,42 @@ $(document).ready(function () {
   // Set up in front-end already
 
   // getting references to our form and input
-  const signUpForm = $("form.signup");
+  const signUpForm = $("#signup-form");
   const emailInput = $("input#email-input");
   const usernameInput = $("input#username-input");
   const passwordInput = $("input#password-input");
 
-  // when signup button is clicked, we validate the email and pw are not blank
-  signUpForm.on("submit", function (event) {
-    event.preventDefault();
-    let userData = {
-      email: emailInput.val().trim(),
-      username: usernameInput.val().trim(),
-      password: passwordInput.val().trim(),
-    };
+  function getCharacter() {
+    console.log("works");
+    $(this).val();
+  }
+  $(".characters").onchange = function () {
+    console.log("works");
+  };
 
+  // when signup button is clicked, we validate the email and pw are not blank
+  $("#signup-btn").click(function (event) {
+    const characterChoice = $("#char-choice");
+    event.preventDefault();
+    //console.log(characterChoice);
+
+    let userData = {
+      email: emailInput.val(),
+      username: usernameInput.val(),
+      password: passwordInput.val(),
+      character: characterChoice.val(),
+    };
+    console.log(userData);
     if (!userData.email || !userData.username || !userData.password) {
       return;
     }
 
     // if we have an email, pw, and username, run the sign up user function
-    signUpUser(userData.email, userData.username, userData.password);
+    //signUpUser(userData.email, userData.username, userData.password);
     emailInput.val("");
     usernameInput.val("");
     passwordInput.val("");
+    //window.location.replace("/harryapp");
   });
 
   // post to the signup route. if successful, we are redirected to inside the app. otherwise we log errors
@@ -34,12 +47,11 @@ $(document).ready(function () {
       email: email,
       username: username,
       password: password,
-    })
-      .then((data) => {
-        window.location.replace("/index");
-        // if there's an error, handle it by throwing a bootstrap alert
-      })
-      .catch(handleSignupErr);
+    }).then((data) => {
+      window.location.replace("/harryapp");
+      // if there's an error, handle it by throwing a bootstrap alert
+    });
+    //.catch(handleSignupErr);
   }
 
   function handleSignupErr(err) {
@@ -49,23 +61,6 @@ $(document).ready(function () {
 
   // create character list api call for drop down
 
-  let dropdown = $(".dropdown-menu").on("click", () => {
-    // var value = $(this).val();
-    // $(".dropdown-item btn").filter("selected", function (index) {
-    //   var nameTest = $(this).toggle($(this).text().indexOf(value) > -1);
-    //   console.log(nameTest);
-    // });
-  });
-
-  $("dropdown-item").on("click", () => {
-    var value = $(this).val();
-    $(".dropdown-item btn").filter("selected", function (index) {
-      var nameTest = $(this).toggle($(this).text().indexOf(value) > -1);
-
-      console.log(nameTest);
-    });
-  });
-
   function createCharacters() {
     const queryURL = "http://hp-api.herokuapp.com/api/characters/";
 
@@ -73,7 +68,7 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (res) {
-      console.log(res);
+      // console.log(res);
       // returns names only
 
       let mapArray = res.map((res) => {
@@ -87,17 +82,20 @@ $(document).ready(function () {
       });
 
       $.each(mapArray, function (val, text) {
-        console.log({ val, text });
+        // console.log({ val, text });
         //dropdown.append(
         $(".character-list").append(
-          $("<option></option")
+          $("<option></option>")
             .text(text.name)
             .attr("health", text.health)
             .attr("stats", text.stats)
+            .attr("value", text.name)
+            .attr("class", "characters")
+            .attr("onchange", "getCharacter()")
           // .attr({ class: "dropdown-item", value: this.name })
         );
       });
-      console.log(mapArray);
+      // console.log(mapArray);
       $(".character-list").append(JSON.parse(mapArray.name));
 
       for (var i = 0; i < mapArray.length; i++) {
@@ -112,4 +110,10 @@ $(document).ready(function () {
   }
 
   createCharacters();
+
+  // submit signup form & redirect user to harryapp page on submission
+  // $("#signup-btn").on("click", function () {
+  //   $("#signup-form").submit();
+  //   window.location.href = "./public/harryapp.html";
+  // });
 });

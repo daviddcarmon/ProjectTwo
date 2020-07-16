@@ -19,13 +19,3 @@ module.exports = calAttach = (one, two) => {
 console.log(calAttach(players[0], players[1]));
 
 
-
-
-let localCharacter = []
-
-localStorage.setItem("users",localStorage)
-
-
-$.each(arrayName, (index, value) => {
-  //location .append((dropdown-value).text(name).attr(index,value))
-})

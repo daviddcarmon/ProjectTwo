@@ -12,11 +12,30 @@ module.exports = function (app) {
   //     res.sendFile(path.join(__dirname, "../public/signup.html"));
   //   });
   //GET route for displaying all characters
-  app.get("/char/character/", function (req, res) {
-    db.POST.findAll({}).then(function (dbPost) {
-      res.json(dbPost);
+  app.get("/api/character/", function (req, res) {
+    db.Character.findAll({}).then(function (dbCharacter) {
+      res.json(dbCharacter);
     });
   });
 
-  //GET route for
+  // add a new character
+  app.post("/api/character/", function (req, res) {
+    console.log(req.name);
+    db.Character.create({
+      name: req.body.name,
+    }).then(function (dbCharacter) {
+      res.json(dbCharacter);
+    });
+  });
+
+  //Delete Character
+  app.delete("/api/character/:id", function (req, res) {
+    db.Character.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function (dbCharacter) {
+      res.json(dbCharacter);
+    });
+  });
 };
