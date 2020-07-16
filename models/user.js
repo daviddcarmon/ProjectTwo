@@ -1,5 +1,6 @@
 // require bcrypt for pw hashing
 const bcrypt = require("bcryptjs");
+var Sequelize = require("sequelize");
 
 // create user model
 module.exports = (sequelize, DataTypes) => {

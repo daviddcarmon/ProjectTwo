@@ -2,6 +2,13 @@ const db = require("../models");
 const passport = require("../config/passport");
 
 module.exports = function (app) {
+  app.get("/", (req, res) => {
+    res.render("login");
+  });
+
+  app.get("/signup", (req, res) => {
+    res.render("signup");
+  });
   // if the user has valid login credentials, send them to index page, otherwise send them the err message
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.join(req.user);
@@ -28,6 +35,25 @@ module.exports = function (app) {
     //   res.status(401).json(err);
     // });
   });
+  app.get("/api/character/", function (req, res) {
+    db.Character.findAll({}).then(function (dbCharacter) {
+      res.json(dbCharacter);
+    });
+  });
+
+  app.get("/harryapp/:id", function (req, res) {
+    db.Character.findAll({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function (dbCharacter) {
+      console.log(dbCharacter);
+      let character = {
+        user: dbCharacter,
+      };
+      res.render("index", character);
+    });
+  });
   // route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
@@ -46,5 +72,31 @@ module.exports = function (app) {
         id: req.user.id,
       });
     }
+  });
+
+  app.get("/signup", function (req, res) {
+    res.sendFile(path.join(__dirname, "/signup"));
+  });
+  // GET route for displaying all characters
+
+  // add a new character
+  app.post("/api/character/", function (req, res) {
+    console.log(req.name);
+    db.Character.create({
+      name: req.body.name,
+    }).then(function (dbCharacter) {
+      res.json(dbCharacter);
+    });
+  });
+
+  //Delete Character
+  app.delete("/api/character/:id", function (req, res) {
+    db.Character.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function (dbCharacter) {
+      res.json(dbCharacter);
+    });
   });
 };
