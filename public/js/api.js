@@ -155,10 +155,13 @@ $(document).ready(function () {
 
         displayCharacter(randomChar);
 
-        displayCharacter(playerTwoChar);
+        // displayCharacter(playerTwoChar);
 
         playBtnStart();
       });
     });
   });
 });
+
+// make sure database function is connected to retrieve user's character to display the info
+// on selected character, need to select the id to display the image

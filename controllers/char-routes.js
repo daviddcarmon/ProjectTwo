@@ -1,5 +1,6 @@
 const db = require("../models/character.js");
-
+const express = require("express");
+const router = express.Router();
 // Character ROUTES
 
 // api - will GET users
@@ -18,15 +19,19 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/character/:id", function(req, res) {
+  router.get("/harryapp", function (req, res) {
     db.Character.findOne({
       where: {
-        id: req.params.id
-      }
-    })
-      .then(function(dbCharacter) {
-        res.json(dbCharacter);
-      });
+        id: req.params.id,
+      },
+    }).then(function (dbCharacter) {
+      // console.log(dbCharacter);
+      let character = {
+        user: dbCharacter,
+      };
+      console.log(character);
+      res.render("index", character);
+    });
   });
 
   // add a new character
