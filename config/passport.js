@@ -10,7 +10,7 @@ passport.use(
     {
       usernameField: "username",
     },
-    function (username, email, password, done) {
+    function (username, password, done) {
       // when a user tries to sign in this code runs
       db.User.findOne({
         where: {
