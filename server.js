@@ -30,7 +30,6 @@ app.set("view engine", "handlebars");
 
 // require routes
 require("./controllers/api-routes.js")(app);
-require("./controllers/char-routes.js")(app);
 
 // sync our db and log messge to user upon success
 db.sequelize.sync().then(function () {
