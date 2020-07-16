@@ -34,25 +34,34 @@ $(document).ready(function () {
     }
 
     // if we have an email, pw, and username, run the sign up user function
-    //signUpUser(userData.email, userData.username, userData.password);
+    signUpUser(
+      userData.email,
+      userData.username,
+      userData.password,
+      userData.character
+    );
     emailInput.val("");
     usernameInput.val("");
     passwordInput.val("");
+
     //window.location.replace("/harryapp");
   });
 
   // post to the signup route. if successful, we are redirected to inside the app. otherwise we log errors
-  function signUpUser(email, username, password) {
+  function signUpUser(email, username, password, character) {
     $.post("/api/signup", {
       email: email,
       username: username,
       password: password,
-    }).then((data) => {
+      name: character,
+    }).then(() => {
       window.location.replace("/harryapp");
       // if there's an error, handle it by throwing a bootstrap alert
     });
     //.catch(handleSignupErr);
   }
+
+  function addCharacter(character) {}
 
   function handleSignupErr(err) {
     $("#alert .msg").text(err.responseJSON);

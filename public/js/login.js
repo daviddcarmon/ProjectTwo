@@ -1,19 +1,12 @@
-
-
-
-
 $(document).ready(function () {
-
-// MODAL
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-
-
+  // MODAL
+  $("#myModal").on("shown.bs.modal", function () {
+    $("#myInput").trigger("focus");
+  });
 
   const loginForm = $("form.login");
-  const usernameInput = $("input#username-input");
-  const passwordInput = $("input#passport-input");
+  const usernameInput = $("input#name");
+  const passwordInput = $("input#pw");
 
   // when form is submitted we validate username and password
   loginForm.on("submit", (event) => {
@@ -40,7 +33,7 @@ $('#myModal').on('shown.bs.modal', function () {
       password: password,
     })
       .then(function () {
-        window.location.replace("/index");
+        window.location.replace("/harryapp");
         // if there's an error, handle it by throwing a bootstrap alert
         // WE ARE USING MATERIALIZE SO WHAT ERROR DO I THROW HERE?
       })
@@ -48,13 +41,8 @@ $('#myModal').on('shown.bs.modal', function () {
     console.log(err);
   }
 
- 
-
-
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
     $("#alert").fadeIn(500);
   }
 });
-
-   
