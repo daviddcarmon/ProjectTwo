@@ -107,14 +107,14 @@ $(document).ready(function () {
       // console.log(mapArray);
       $(".character-list").append(JSON.parse(mapArray.name));
 
-      for (var i = 0; i < mapArray.length; i++) {
-        var charList = $(".dropdown-item");
-        charList.append(mapArray[i].name);
+      // for (var i = 0; i < mapArray.length; i++) {
+      //   var charList = $(".dropdown-item");
+      //   charList.append(mapArray[i].name);
 
-        // take character list and create new variable and parse out array
+      //   // take character list and create new variable and parse out array
 
-        $(".character-list").append(JSON.parse(charList));
-      }
+      //   $(".character-list").append(JSON.parse(charList));
+      // }
     });
   }
 
