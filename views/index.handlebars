@@ -20,53 +20,54 @@
 </head>
 
 <body id="page-top">
-<header class="masthead" id="duelapp">
-      <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-          <h1 class="mx-auto my-0 text-uppercase">Prepare to Duel</h1>
-          <h2 class="text-white-50 mx-auto mt-2 mb-5">
-            Welcome to the Wizarding World.
-          </h2>
-          <a
-            class="btn btn-primary js-scroll-trigger glow-on-hover"
-            data-toggle="modal"
-            data-target="#myModal"
-            id="openBtn"
-            >Alohamora</a
-          >
-          <a class="btn btn-primary js-scroll-trigger glow-on-hover" href="signup"
-            >Enroll in class</a
-          >    <!-- DROPDOWN BUTTON -->
-    <form action="">
-        <select class="charList" name="test" id="">
-            <option value="" selected>Select</option>
-        </select>
-    </form>
-    <div class="ranBtn">
-    </div>
-    <div class="winner"></div>
-    <div class="userChar">
-        {{#each character}}
-        {{/each}}
-    </div>
-    <div class="randChar"></div>
-    <div class="play"></div>
+    <header class="masthead" id="duelapp">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Prepare to Duel</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">
+                    Welcome to the Wizarding World.
+                </h2>
+                <a class="btn btn-primary js-scroll-trigger glow-on-hover" data-toggle="modal" data-target="#myModal"
+                    id="openBtn">Alohamora</a>
+                <a class="btn btn-primary js-scroll-trigger glow-on-hover" href="signup">Enroll in class</a>
+                <!-- DROPDOWN BUTTON -->
+                <form action="">
+                    <select class="charList" name="test" id="">
+                        <option value="" selected>Select</option>
+                    </select>
+                </form>
+                <div class="ranBtn">
+                </div>
+                <div class="winner"></div>
+                <div class="userChar">
+                    <div class="userName">
+                        {{character.name}}
+                    </div>
+                    <div class="userHealth">
+                        Health: {{character.health}}
+                    </div>
+                    <div class="userAttack">
+                        Attack: {{character.attack}}
+                    </div>
+                </div>
+                <div class="randChar"></div>
+                <div class="play"></div>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-    <script src="../js/api.js"></script>
-    <script src="../js/signup.js"></script>
-    <script src="../js/login.js"></script>
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                    crossorigin="anonymous"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                    crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                    crossorigin="anonymous"></script>
+                <script src="../js/api.js"></script>
+                <script src="../js/signup.js"></script>
+                <script src="../js/login.js"></script>
 </body>
 
 </html>
