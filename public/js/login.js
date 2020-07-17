@@ -33,7 +33,7 @@ $(document).ready(function () {
       password: password,
     })
       .then(function () {
-        window.location.replace("/harryapp");
+        window.location.replace("/harryapp/:id");
         // if there's an error, handle it by throwing a bootstrap alert
         // WE ARE USING MATERIALIZE SO WHAT ERROR DO I THROW HERE?
       })
