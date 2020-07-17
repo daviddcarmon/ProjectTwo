@@ -363,11 +363,24 @@
   }
   
   h2, .h2 {
-    font-size: 2rem;
+    font-size: 65px;
+    font-family: "Varela Round", sans-serif;
+    /* letter-spacing: 0.8rem; */
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
   }
   
   h3, .h3 {
     font-size: 1.75rem;
+    font-family: 'Calligraffitti', cursive;
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+    background: linear-gradient(rgb(253, 173, 82), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
   }
   
   h4, .h4 {
@@ -2011,7 +2024,7 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #f59696;
+    /* color: #0e005e; */
     background-color: rgb(253, 211, 162);
     background-clip: padding-box;
     border: 1px inset #153e46;
@@ -8112,6 +8125,7 @@
   .mr-auto,
   .mx-auto {
     margin-right: auto !important;
+    color: rgb(0, 110, 0);
   }
   
   .mb-auto,
@@ -8122,6 +8136,7 @@
   .ml-auto,
   .mx-auto {
     margin-left: auto !important;
+
   }
   
   @media (min-width: 576px) {
@@ -10426,6 +10441,7 @@
 
 /* MODAL BUTTONS
  */
+
 a#loginBtn {
     color: rgb(82, 0, 0);
     font-size: large;
@@ -10494,7 +10510,7 @@ input#name.form-control:hover {
 
 input#pw.form-control {
   background: transparent;
-  color: white;
+  color: rgb(22, 22, 22);
 }
 
 input#pw.form-control:hover {
@@ -10502,12 +10518,12 @@ input#pw.form-control:hover {
   color: rgb(255, 245, 218);
 
 }
-
-
-
-
-
-
+.modal.fade {
+  background-image: url("BGimg/HPbackground.png");
+  background-color: black;
+  opacity: 1;
+  transition: 1s ease-in;
+}
 
 
   .about-section {
@@ -10544,10 +10560,90 @@ input#pw.form-control:hover {
       width: 30%;
     }
   }
+
+
+
+  /* FORM AND SIGNUP */
+
+
+
+
+    .signup-btn {
+      color: white;
+    }
+
+
+    input#email-input.form-control {
+      background: rgb(26, 22, 22);
+      color: rgb(255, 232, 232);
+      
+    }
+    
+    input#email.input.form-control:hover {
+      background: rgb(26, 22, 22);
+      color: rgb(44, 38, 22);
+      /* opacity: .6; */
+    
+    }
+
+    input#password-input.form-control {
+      background: rgb(26, 22, 22);
+      color: rgb(255, 232, 232);
+    }
+    
+    input#password.input.form-control:hover {
+      background: rgb(26, 22, 22);
+      color: rgb(255, 245, 218);
+    
+    }
+
+    input#username-input.form-control {
+      background: rgb(26, 22, 22);
+      color: rgb(121, 118, 118);
+    }
+    
+    input#username.input.form-control:hover {
+      background: rgb(26, 22, 22);
+      color: rgb(255, 245, 218);
+    
+    }
+
+
+select#char-choice.form-control.character-list {
+  background: rgb(26, 22, 22);
+  color: rgb(255, 245, 218);
+
+}
+
+
+.masthead#signupBG {
+  position: relative;
+    width: 100%;
+    min-height: 35rem;
+    padding: 15rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("https://img.wallpapersafari.com/desktop/1366/768/11/35/HfgKMr.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+
+
+
+    /* section#section.signup-section {
+      background-color: green;
+    } */
   
+
+
+
   .signup-section {
     padding: 10rem 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000000 100%), url("../assets/img/bg-signup.jpg");
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000000 100%), url("BGimg/Brick.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
