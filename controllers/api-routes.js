@@ -54,6 +54,7 @@ module.exports = function (app) {
         attack: dbCharacter[0].attack,
       };
       res.render("index", character);
+
     });
   });
   // route for logging user out
