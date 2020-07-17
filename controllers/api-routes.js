@@ -53,7 +53,7 @@ module.exports = function (app) {
         health: dbCharacter[0].health,
         attack: dbCharacter[0].attack,
       };
-
+      // comment to commit
       res.render("index", { character });
     });
   });
