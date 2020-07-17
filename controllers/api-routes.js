@@ -47,12 +47,14 @@ module.exports = function (app) {
         id: req.params.id,
       },
     }).then(function (dbCharacter) {
-      console.log(dbCharacter[0].name);
+      console.log(dbCharacter);
+      let character = {
+        name: dbCharacter[0].name,
+        health: dbCharacter[0].health,
+        attack: dbCharacter[0].attack,
+      };
+      res.render("index", character);
 
-      // let character = {
-      //   user: dbCharacter,
-      // };
-      res.render("index", { name: dbCharacter[0].name });
     });
   });
   // route for logging user out
