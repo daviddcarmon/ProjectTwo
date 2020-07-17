@@ -49,7 +49,9 @@ module.exports = function (app) {
     }).then(function (dbCharacter) {
       console.log(dbCharacter);
       let character = {
-        user: dbCharacter,
+        name: dbCharacter[0].name,
+        health: dbCharacter[0].health,
+        attack: dbCharacter[0].attack,
       };
       res.render("index", character);
     });
