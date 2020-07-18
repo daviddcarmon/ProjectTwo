@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // console.log('api.js')
   // needs to come from database $(".userChar")
   //SELECT * FROM Characters JOIN Users ON Characters.Userid = Users.Id WHERE Users.Id = ?
   // NEED TO CAPTURE IMG URL TO DATABASE
@@ -6,7 +7,7 @@ $(document).ready(function () {
   function getUserChar() {
     $.get("/api/character/:id", function (data) {
       if (data) {
-        console.log(data);
+        // console.log(data);
         let card = $("<section>").attr({
           class: "card col-md-4",
           id: data.name,
@@ -33,13 +34,13 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (res) {
-      console.log(res);
-      // let res = res;
+      // console.log(res);
 
       function selectedCharacter() {
         $(this).val();
         $(this).attr("id");
       }
+
       // returns names only
 
       let mapArray = res.map((res) => {
@@ -104,13 +105,13 @@ $(document).ready(function () {
         $(".play").empty();
         $(".play").append(playBtn);
         let selectedChar = $(this).val();
-        let selectImg = $(this).attr("class");
-        console.log(selectImg);
+        let selectImg = $(this).find(":selected").attr("id");
+        // console.log($(this).find(":selected").attr("id"));
         let objChar = {
           name: selectedChar,
           health: 100,
           attack: Math.floor(Math.random() * 25) + 5,
-          image: res.image,
+          image: selectImg,
         };
         if (objChar.name === "") {
           return;
@@ -123,7 +124,6 @@ $(document).ready(function () {
       });
 
       $.each(mapArray, function (val, text) {
-        console.log(typeof text.image);
         $(".charList").append(
           $("<option></option>").text(text.name).attr({
             class: "listItem btn",
@@ -131,6 +131,7 @@ $(document).ready(function () {
             onchange: "selectedCharacter()",
           })
         );
+        // console.log(typeof this.image);
       });
 
       // returns if exists all values(array of objects) for "Slytherin"
