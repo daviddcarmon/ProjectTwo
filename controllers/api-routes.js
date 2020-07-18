@@ -45,7 +45,7 @@ module.exports = function (app) {
   app.get("/harryapp/:id", function (req, res) {
     db.Character.findAll({
       where: {
-        id: req.params.id,
+        UserId: req.params.id,
       },
     }).then(function (dbCharacter) {
       console.log(dbCharacter);
