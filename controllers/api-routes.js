@@ -26,6 +26,7 @@ module.exports = function (app) {
         name: req.body.name,
         health: 100,
         attack: 10,
+        image: req.body.image,
         UserId: data.id,
       }).then(function () {
         res.redirect("/harryapp");
@@ -52,6 +53,7 @@ module.exports = function (app) {
         name: dbCharacter[0].name,
         health: dbCharacter[0].health,
         attack: dbCharacter[0].attack,
+        image: dbCharacter[0].image,
       };
       // comment to commit
       res.render("index", { character });

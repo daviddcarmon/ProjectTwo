@@ -21,6 +21,11 @@ module.exports = (sequelize, DataTypes) => {
         return Math.random();
       },
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: false,
+    },
   });
   Character.associate = (models) => {
     Character.belongsTo(models.User, {

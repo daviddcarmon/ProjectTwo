@@ -9,13 +9,13 @@ $(document).ready(function () {
   const passwordInput = $("input#password-input");
 
   function getCharacter() {
-    console.log("works");
+    // console.log("works");
     $(this).val();
-    $(this).attr("id")
+    $(this).attr("image");
   }
-  $(".characters").onchange = function () {
-    console.log("works");
-  };
+  // $(".characters").onchange = function () {
+  //   console.log("works");
+  // };
 
   // when signup button is clicked, we validate the email and pw are not blank
   $("#signup-btn").click(function (event) {
@@ -28,9 +28,16 @@ $(document).ready(function () {
       username: usernameInput.val(),
       password: passwordInput.val(),
       character: characterChoice.val(),
+      image: characterChoice.find(":selected").attr("image"),
     };
-    console.log(characterChoice.find(":selected").attr("id"));
-    if (!userData.email || !userData.username || !userData.password) {
+    console.log(characterChoice.find(":selected").attr("image"));
+    console.log(userData);
+    if (
+      !userData.email ||
+      !userData.username ||
+      !userData.password ||
+      !userData.character
+    ) {
       return;
     }
 
@@ -39,7 +46,8 @@ $(document).ready(function () {
       userData.email,
       userData.username,
       userData.password,
-      userData.character
+      userData.character,
+      userData.image
     );
     emailInput.val("");
     usernameInput.val("");
@@ -49,20 +57,19 @@ $(document).ready(function () {
   });
 
   // post to the signup route. if successful, we are redirected to inside the app. otherwise we log errors
-  function signUpUser(email, username, password, character) {
+  function signUpUser(email, username, password, character, image) {
     $.post("/api/signup", {
       email: email,
       username: username,
       password: password,
       name: character,
+      image: image,
     }).then(() => {
       window.location.replace("/harryapp");
       // if there's an error, handle it by throwing a bootstrap alert
     });
     //.catch(handleSignupErr);
   }
-
-  function addCharacter(character) {}
 
   function handleSignupErr(err) {
     $("#alert .msg").text(err.responseJSON);
@@ -88,6 +95,7 @@ $(document).ready(function () {
           name: res.name,
           health: health.toFixed(0),
           stats: stat.toFixed(0),
+          image: res.image,
         };
       });
 
@@ -101,6 +109,7 @@ $(document).ready(function () {
             .attr("stats", text.stats)
             .attr("value", text.name)
             .attr("class", "characters")
+            .attr("image", text.image)
             .attr("onchange", "getCharacter()")
           // .attr({ class: "dropdown-item", value: this.name })
         );
