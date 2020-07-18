@@ -11,6 +11,7 @@ $(document).ready(function () {
   function getCharacter() {
     console.log("works");
     $(this).val();
+    $(this).attr("id")
   }
   $(".characters").onchange = function () {
     console.log("works");
@@ -28,7 +29,7 @@ $(document).ready(function () {
       password: passwordInput.val(),
       character: characterChoice.val(),
     };
-    console.log(userData);
+    console.log(characterChoice.find(":selected").attr("id"));
     if (!userData.email || !userData.username || !userData.password) {
       return;
     }
