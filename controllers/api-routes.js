@@ -12,7 +12,7 @@ module.exports = function (app) {
   // if the user has valid login credentials, send them to index page, otherwise send them the err message
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.join(req.user);
-    //res.redirect("/harryapp");
+    db.Characters.findAll({});
   });
 
   // route for signing up a user. user's password is auto hashed and stored securely bc of how we configured our sequelize user model. if user created successfully, proceed to log the user in, otherwise send error
@@ -28,8 +28,10 @@ module.exports = function (app) {
         attack: 10,
         image: req.body.image,
         UserId: data.id,
-      }).then(function () {
-        res.redirect("/harryapp/:id");
+      }).then(function (userInfo) {
+        const id = userInfo.dataValues.UserId;
+        //res.redirect("/harryapp/" + id);
+        res.json({ id });
       });
     });
     // .catch(function (err) {
