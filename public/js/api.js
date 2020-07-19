@@ -1,3 +1,5 @@
+const character = require("../../models/character");
+
 $(document).ready(function () {
   // console.log('api.js')
   // needs to come from database $(".userChar")
@@ -80,15 +82,28 @@ $(document).ready(function () {
         $("#play").on("click", () => {
           // console.log(typeof randomChar.health);
           let healthInt = parseInt(randomChar.health);
-          let attackInt = playerTwoChar.attack;
+          let userAttackInt = playerTwoChar.attack;
           // console.log(typeof playerTwoChar.attack);
-          randomChar.health = parseInt(healthInt - attackInt);
+          randomChar.health = parseInt(healthInt - userAttackInt);
+
+
+          // BROKEN CODE DO NOT UN-COMMENT!!!! NEEDS USER INFO FROM DATABASE(ATTACK, HEALTH)
+          // let userHealth = parseInt(character.health);
+          // let randCharAttack = randomChar.attack;
+          // character.health = parseInt(userHealth - randCharAttack);
 
           if (randomChar.health <= 0) {
             let winnerText = $("div>").text("WINNER!");
             $(".winner").append(winnerText);
-          } else {
+          }
+          // if (character.health <= 0) {
+          //   let lostText = $("div>").text("You lost!");
+          //   $(".winner").append(lostText);
+        // } 
+          else {
+            $("").empty();
             $(".randomHealth").empty();
+            $("").append(character.health);
             $(".randomHealth").append(randomChar.health);
           }
         });
