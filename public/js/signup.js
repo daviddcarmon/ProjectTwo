@@ -53,7 +53,7 @@ $(document).ready(function () {
     usernameInput.val("");
     passwordInput.val("");
 
-    //window.location.replace("/harryapp");
+    // window.location.replace("/harryapp/:id");
   });
 
   // post to the signup route. if successful, we are redirected to inside the app. otherwise we log errors
