@@ -29,7 +29,7 @@ module.exports = function (app) {
         image: req.body.image,
         UserId: data.id,
       }).then(function () {
-        res.redirect("/harryapp");
+        res.redirect("/harryapp/:id");
       });
     });
     // .catch(function (err) {
@@ -45,7 +45,7 @@ module.exports = function (app) {
   app.get("/harryapp/:id", function (req, res) {
     db.Character.findAll({
       where: {
-        id: req.params.id,
+        UserId: req.params.id,
       },
     }).then(function (dbCharacter) {
       console.log(dbCharacter);
@@ -82,7 +82,6 @@ module.exports = function (app) {
   app.get("/signup", function (req, res) {
     res.sendFile(path.join(__dirname, "/signup"));
   });
-  // GET route for displaying all characters
 
   // add a new character
   app.post("/api/character/", function (req, res) {
@@ -94,14 +93,14 @@ module.exports = function (app) {
     });
   });
 
-  //Delete Character
-  app.delete("/api/character/:id", function (req, res) {
-    db.Character.destroy({
+  //Delete User
+  app.delete("/api/user/:id", function (req, res) {
+    db.User.destroy({
       where: {
         id: req.params.id,
       },
-    }).then(function (dbCharacter) {
-      res.json(dbCharacter);
+    }).then(function (dbUser) {
+      res.json(dbUser);
     });
   });
 };
