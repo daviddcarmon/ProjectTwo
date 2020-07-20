@@ -65,6 +65,7 @@ $(document).ready(function () {
       name: character,
       image: image,
     }).then(({ id }) => {
+      //console.log(id);
       window.location.replace("/harryapp/" + id);
       // if there's an error, handle it by throwing a bootstrap alert
     });
