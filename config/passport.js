@@ -12,25 +12,31 @@ passport.use(
     },
     function (username, password, done) {
       // when a user tries to sign in this code runs
+      console.log("inside passport");
+      console.log("username", username);
+      console.log("password", password);
       db.User.findOne({
         where: {
           username: username,
         },
       }).then(function (dbUser) {
+        //console.log("user information", dbUser);
         // if there is no user with the given username
         if (!dbUser) {
           return done(null, false, {
             message: "Incorrect username. Please try again!",
           });
         }
+
         // if there is a user with a given username, but the pw the user gives is incorrect, we run this code
-        else if (!dbUser.validPassword(password)) {
-          return done(null, false, {
-            message: "Incorrect password. Please try again!",
-          });
-        }
+        // else if (!dbUser.validPassword(password)) {
+        //   return done(null, false, {
+        //     message: "Incorrect password. Please try again!",
+        //   });
+        // }
         // if none of the above, allow the user entrrance to app
         // FOR NOW THIS JUST RETURNS THE USER INFO
+        console.log("passport is done");
         return done(null, dbUser);
       });
     }
