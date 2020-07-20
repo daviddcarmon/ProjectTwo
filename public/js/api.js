@@ -1,5 +1,3 @@
-const character = require("../../models/character");
-
 $(document).ready(function () {
   // console.log('api.js')
   // needs to come from database $(".userChar")
@@ -181,3 +179,5 @@ $(document).ready(function () {
 
 // make sure database function is connected to retrieve user's character to display the info
 // on selected character, need to select the id to display the image
+// delete this comment
+
