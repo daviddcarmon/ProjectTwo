@@ -64,8 +64,8 @@ $(document).ready(function () {
       password: password,
       name: character,
       image: image,
-    }).then(() => {
-      window.location.replace("/harryapp");
+    }).then(({ id }) => {
+      window.location.replace("/harryapp/" + id);
       // if there's an error, handle it by throwing a bootstrap alert
     });
     //.catch(handleSignupErr);
