@@ -112,8 +112,7 @@ module.exports = function (app) {
   // think it needs to be /harryapp/:id
   // app.put("/harryapp/:id", (req, res) => {
   //   db.Character.
-    
-    
+
   //   .then(function (dbUser) {
   //     res.render("index", { character });
   //   });

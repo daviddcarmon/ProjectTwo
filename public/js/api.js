@@ -1,18 +1,14 @@
 
-
 $(document).ready(function () {
-  // console.log('api.js')
-  // needs to come from database $(".userChar")
-  //SELECT * FROM Characters JOIN Users ON Characters.Userid = Users.Id WHERE Users.Id = ?
-  // NEED TO CAPTURE IMG URL TO DATABASE
-  let userCharacter = {
+   let userCharacter = {
+
     name: $(".userName").text().trim(),
     health: $(".userHealth").text().trim().split(" ")[1],
     attack: $(".userAttack").text().trim().split(" ")[1],
   };
   console.log(userCharacter);
   $(function () {
-    const queryURL = "http://hp-api.herokuapp.com/api/characters";
+    const queryURL = "https://hp-api.herokuapp.com/api/characters";
 
     $.ajax({
       url: queryURL,
@@ -73,7 +69,9 @@ $(document).ready(function () {
           userCharacter.health = parseInt(userHealth - randCharAttack);
           console.log(userCharacter);
 
+
           console.log(parseInt(userCharacter.health));
+
 
           // db.Character.update({
           //   health: userCharacter.health
@@ -89,9 +87,11 @@ $(document).ready(function () {
             let lostText = $("div>").text("You lost!");
             $(".winner").append(lostText);
           } else {
-            $("userHealth").empty();
+
+            $(".userHealth").empty();
             $(".randomHealth").empty();
-            $("userHealth").append(userCharacter.health);
+            $(".userHealth").append(userCharacter.health);
+
             $(".randomHealth").append(randomChar.health);
           }
         });
