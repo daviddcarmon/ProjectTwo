@@ -1,5 +1,7 @@
+
 $(document).ready(function () {
    let userCharacter = {
+
     name: $(".userName").text().trim(),
     health: $(".userHealth").text().trim().split(" ")[1],
     attack: $(".userAttack").text().trim().split(" ")[1],
@@ -38,8 +40,9 @@ $(document).ready(function () {
         let healthTxt = `Health: ${player.health}`;
         let health = $("<div>").text(healthTxt).attr({ class: "randomHealth" });
         let img = $("<img>").attr("src", player.image);
+        img.attr("class","img-fluid player-icon")
         let card = $("<section>").attr({
-          class: "card col-md-4",
+          class: "card col-md-4 player-card",
           id: player.name,
         });
 
@@ -66,7 +69,9 @@ $(document).ready(function () {
           userCharacter.health = parseInt(userHealth - randCharAttack);
           console.log(userCharacter);
 
+
           console.log(parseInt(userCharacter.health));
+
 
           // db.Character.update({
           //   health: userCharacter.health
@@ -82,9 +87,11 @@ $(document).ready(function () {
             let lostText = $("div>").text("You lost!");
             $(".winner").append(lostText);
           } else {
+
             $(".userHealth").empty();
             $(".randomHealth").empty();
             $(".userHealth").append(userCharacter.health);
+
             $(".randomHealth").append(randomChar.health);
           }
         });
@@ -98,8 +105,8 @@ $(document).ready(function () {
       $(".charList").on("click", function (e) {
         e.preventDefault();
         $(".randChar").empty();
-        $(".play").empty();
-        $(".play").append(playBtn);
+        $("#play").empty();
+        $("#play").append(playBtn);
         let selectedChar = $(this).val();
         let selectImg = $(this).find(":selected").attr("id");
         // console.log($(this).find(":selected").attr("id"));
@@ -138,6 +145,7 @@ $(document).ready(function () {
       /// dummy button and display code
       let button = $("<button>")
         .attr({ class: "btn", id: "test" })
+        .attr("class","gameBtn")
         .text("Randomize");
       $(".ranBtn").append(button);
 

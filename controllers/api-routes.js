@@ -46,6 +46,7 @@ module.exports = function (app) {
     });
   });
 
+  // get user info from UserId then render character info to handlebars
   app.get("/harryapp/:id", function (req, res) {
     db.Character.findAll({
       where: {
