@@ -189,6 +189,8 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 input#name.form-control {
   background: transparent;
   color: rgb(255, 232, 232);
+  font-size: 3rem !important;
+
 }
 
 input#name.form-control:hover {
@@ -201,6 +203,7 @@ input#name.form-control:hover {
 input#pw.form-control {
   background: transparent;
   color: rgb(255, 232, 232);
+  font-size: 3rem !important;
 }
 
 input#pw.form-control:hover {
@@ -549,6 +552,8 @@ div.modal-header {
     input#email-input.form-control {
       background: rgb(26, 22, 22);
       color: rgb(255, 232, 232);
+      font-size: 3rem !important;
+
       
     }
     
@@ -562,6 +567,8 @@ div.modal-header {
     input#password-input.form-control {
       background: rgb(26, 22, 22);
       color: rgb(255, 232, 232);
+      font-size: 3rem !important;
+
     }
     
     input#password.input.form-control:hover {
@@ -573,6 +580,8 @@ div.modal-header {
     input#username-input.form-control {
       background: rgb(26, 22, 22);
       color: rgb(121, 118, 118);
+      font-size: 3rem !important;
+
     }
     
     input#username.input.form-control:hover {
@@ -585,6 +594,7 @@ div.modal-header {
 select#char-choice.form-control.character-list {
   background: rgb(26, 22, 22);
   color: rgb(255, 245, 218);
+  font-size: 2.5rem !important;
 
 }
 
@@ -791,6 +801,7 @@ animation-delay: 1.5s;
 animation-fill-mode: forwards;
 background-color: transparent;
 border-color: transparent;
+
 }
 
 
@@ -804,8 +815,9 @@ border-color: transparent;
 
 
 .btn-primary {
-  background-color: transparent;
-  border-color: transparent;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  
 }
 
 /* .btn-primary:focus, .btn-primary.focus {
@@ -824,7 +836,7 @@ border-color: transparent;
 
 a.btn-primary {
   color: rgb(214, 114, 0);
-  font-size: 16px;
+  font-size: 1.4rem;
   padding-bottom: 40px;
   font-family: 'Cinzel', serif;
   opacity: 0;
@@ -850,13 +862,29 @@ a#skipBtn.btn.btn-primary {
   padding: 20px;
 } 
 
-a#classBtn.btn.btn-primary {
+a#loginBtn.btn.btn-primary {
   background-color: rgba(83, 7, 2, 0.171);
   padding: 20px;
   color:rgb(255, 232, 232);
+  max-width: 400px !important;
 }
 
+.welcomeBtn{
+  width: 500px !important;
+}
 
+.player-icon {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.player-card {
+  margin: 10px;
+}
+.gameBtn{
+  background-color: violet;
+  color:black;
+}
 
 
 /* GLOW BUTTON */
