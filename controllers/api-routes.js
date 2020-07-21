@@ -107,4 +107,22 @@ module.exports = function (app) {
       res.json(dbUser);
     });
   });
+
+  // think it needs to be /harryapp/:id
+  // app.put("/harryapp/:id", (req, res) => {
+  //   db.Character.
+
+  //   .then(function (dbUser) {
+  //     res.render("index", { character });
+  //   });
+
+  //   .find({ where : { UserId: req.params.id}}).on("",(data)=>{ if(data){
+  //   Character.update({
+  //   health: character.health
+  //   })
+  //   }})
+
+  //   .update({ health: userCharacter.health,}, { where: { UserId: req.params.id },})
+
+  // });
 };

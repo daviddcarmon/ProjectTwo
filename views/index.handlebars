@@ -1,43 +1,42 @@
-
-
-<header class="masthead" id="duelapp">
+{{!-- <header class="masthead" id="duelapp">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
             <h1 class="mx-auto my-0 text-uppercase">Prepare to Duel</h1>
             <h2 class="text-white-50 mx-auto mt-2 mb-5">
                 Welcome to the Wizarding World.
             </h2>
-            
+
             <nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <a class="btn btn-primary" href="/" id="logoutBtn" >Main button</button>>
-  </form>
-</nav>
-            
-            <!-- DROPDOWN BUTTON -->
-            <form action="">
-                <select class="charList" name="test" id="">
-                    <option value="" selected>Select</option>
-                </select>
-            </form>
-            <div class="ranBtn">
-            </div>
-            <div class="winner"></div>
-            <div class="userChar">
-                <image class="userImage" src="{{character.image}}">
+                <form class="form-inline">
+                    <a class="logBtn btn-primary" href="/" id="logoutBtn">Log Out</button>>
+                </form>
+            </nav>
+        </div>
+    </div>
+
+</header> --}}
+<!-- DROPDOWN BUTTON -->
+<form action="">
+    <select class="charList" name="test" id="">
+        <option value="" selected>Select</option>
+    </select>
+</form>
+<div class="ranBtn">
+</div>
+<div class="winner"></div>
+<div class="userChar">
+    <image class="userImage" src="{{character.image}}">
 
 
-                    <div class="userName">
-                        {{character.name}}
-                    </div>
-                    <div class="userHealth">
-                        Health: {{character.health}}
-                    </div>
-                    <div class="userAttack">
-                        Attack: {{character.attack}}
-                    </div>
-            </div>
-            <div class="randChar"></div>
-            <div class="play"></div>
-
-            
+        <div class="userName">
+            {{character.name}}
+        </div>
+        <div class="userHealth">
+            Health: {{character.health}}
+        </div>
+        <div class="userAttack">
+            Attack: {{character.attack}}
+        </div>
+</div>
+<div class="randChar"></div>
+<div class="play"></div>
