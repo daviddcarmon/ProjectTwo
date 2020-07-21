@@ -1,34 +1,16 @@
-//const character = require("../../models/character");
+
 
 $(document).ready(function () {
   // console.log('api.js')
   // needs to come from database $(".userChar")
   //SELECT * FROM Characters JOIN Users ON Characters.Userid = Users.Id WHERE Users.Id = ?
   // NEED TO CAPTURE IMG URL TO DATABASE
-
-  function getUserChar() {
-    $.get("/api/character/:id", function (data) {
-      if (data) {
-        // console.log(data);
-        let card = $("<section>").attr({
-          class: "card col-md-4",
-          id: data.name,
-        });
-        let name = $("<div>").attr({ class: "userName" }).val(data.name);
-        let health = $(".userHealth")
-          .attr({ class: "userHealth" })
-          .val(data.health);
-        let attack = $(".userAttack")
-          .attr({ class: "userAttack" })
-          .val(data.attack);
-
-        card.append(name, health, attack);
-        $(".userChar").append(card);
-      }
-    });
-  }
-  // getUserChar();
-
+  let userCharacter = {
+    name: $(".userName").text().trim(),
+    health: $(".userHealth").text().trim().split(" ")[1],
+    attack: $(".userAttack").text().trim().split(" ")[1],
+  };
+  console.log(userCharacter);
   $(function () {
     const queryURL = "http://hp-api.herokuapp.com/api/characters";
 
@@ -42,8 +24,6 @@ $(document).ready(function () {
         $(this).val();
         $(this).attr("id");
       }
-
-      // returns names only
 
       let mapArray = res.map((res) => {
         let health = 100;
@@ -77,34 +57,41 @@ $(document).ready(function () {
       let index = Math.floor(Math.random() * 25);
       let index2 = Math.floor(Math.random() * Math.random() * 25);
       let randomChar = mapArray[index];
-      let playerTwoChar = mapArray[index2];
-
+    
       let playBtnStart = () => {
         $("#play").on("click", () => {
+          // userAttack
           // console.log(typeof randomChar.health);
           let healthInt = parseInt(randomChar.health);
-          let userAttackInt = playerTwoChar.attack;
-          // console.log(typeof playerTwoChar.attack);
+          let userAttackInt = userCharacter.attack;
+          // console.log(typeof userCharacter.attack);
           randomChar.health = parseInt(healthInt - userAttackInt);
 
+          // randCharAttack
+          let userHealth = parseInt(userCharacter.health);
+          let randCharAttack = randomChar.attack;
+          userCharacter.health = parseInt(userHealth - randCharAttack);
+          console.log(userCharacter);
 
-          // BROKEN CODE DO NOT UN-COMMENT!!!! NEEDS USER INFO FROM DATABASE(ATTACK, HEALTH)
-          // let userHealth = parseInt(character.health);
-          // let randCharAttack = randomChar.attack;
-          // character.health = parseInt(userHealth - randCharAttack);
+          console.log(parseInt(userCharacter.health));
+
+          // db.Character.update({
+          //   health: userCharacter.health
+          // }, {
+          //   where:{UserId: req.params.id}
+          // })
 
           if (randomChar.health <= 0) {
             let winnerText = $("div>").text("WINNER!");
             $(".winner").append(winnerText);
           }
-          // if (character.health <= 0) {
-          //   let lostText = $("div>").text("You lost!");
-          //   $(".winner").append(lostText);
-        // } 
-          else {
-            $("").empty();
+          if (userCharacter.health <= 0) {
+            let lostText = $("div>").text("You lost!");
+            $(".winner").append(lostText);
+          } else {
+            $("userHealth").empty();
             $(".randomHealth").empty();
-            $("").append(character.health);
+            $("userHealth").append(userCharacter.health);
             $(".randomHealth").append(randomChar.health);
           }
         });
@@ -118,8 +105,8 @@ $(document).ready(function () {
       $(".charList").on("click", function (e) {
         e.preventDefault();
         $(".randChar").empty();
-        $(".play").empty();
-        $(".play").append(playBtn);
+        $("#play").empty();
+        $("#play").append(playBtn);
         let selectedChar = $(this).val();
         let selectImg = $(this).find(":selected").attr("id");
         // console.log($(this).find(":selected").attr("id"));
