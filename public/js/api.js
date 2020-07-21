@@ -1,34 +1,14 @@
-const character = require("../../models/character");
-
 $(document).ready(function () {
   // console.log('api.js')
   // needs to come from database $(".userChar")
   //SELECT * FROM Characters JOIN Users ON Characters.Userid = Users.Id WHERE Users.Id = ?
   // NEED TO CAPTURE IMG URL TO DATABASE
-
-  function getUserChar() {
-    $.get("/api/character/:id", function (data) {
-      if (data) {
-        // console.log(data);
-        let card = $("<section>").attr({
-          class: "card col-md-4",
-          id: data.name,
-        });
-        let name = $("<div>").attr({ class: "userName" }).val(data.name);
-        let health = $(".userHealth")
-          .attr({ class: "userHealth" })
-          .val(data.health);
-        let attack = $(".userAttack")
-          .attr({ class: "userAttack" })
-          .val(data.attack);
-
-        card.append(name, health, attack);
-        $(".userChar").append(card);
-      }
-    });
-  }
-  // getUserChar();
-
+  let userCharacter = {
+    name: $(".userName").text().trim(),
+    health: $(".userHealth").text().trim().split(" ")[1],
+    attack: $(".userAttack").text().trim().split(" ")[1],
+  };
+  console.log(userCharacter);
   $(function () {
     const queryURL = "http://hp-api.herokuapp.com/api/characters";
 
@@ -86,24 +66,25 @@ $(document).ready(function () {
           // console.log(typeof playerTwoChar.attack);
           randomChar.health = parseInt(healthInt - userAttackInt);
 
-
           // BROKEN CODE DO NOT UN-COMMENT!!!! NEEDS USER INFO FROM DATABASE(ATTACK, HEALTH)
-          // let userHealth = parseInt(character.health);
-          // let randCharAttack = randomChar.attack;
-          // character.health = parseInt(userHealth - randCharAttack);
+          let userHealth = parseInt(userCharacter.health);
+          let randCharAttack = randomChar.attack;
+          userCharacter.health = parseInt(userHealth - randCharAttack);
+          console.log(userCharacter);
+
+          console.log(parseInt(userCharacter.health));
 
           if (randomChar.health <= 0) {
             let winnerText = $("div>").text("WINNER!");
             $(".winner").append(winnerText);
           }
-          // if (character.health <= 0) {
-          //   let lostText = $("div>").text("You lost!");
-          //   $(".winner").append(lostText);
-        // } 
-          else {
-            $("").empty();
+          if (userCharacter.health <= 0) {
+            let lostText = $("div>").text("You lost!");
+            $(".winner").append(lostText);
+          } else {
+            $("userHealth").empty();
             $(".randomHealth").empty();
-            $("").append(character.health);
+            $("userHealth").append(userCharacter.health);
             $(".randomHealth").append(randomChar.health);
           }
         });
@@ -117,8 +98,8 @@ $(document).ready(function () {
       $(".charList").on("click", function (e) {
         e.preventDefault();
         $(".randChar").empty();
-        $(".play").empty();
-        $(".play").append(playBtn);
+        $("#play").empty();
+        $("#play").append(playBtn);
         let selectedChar = $(this).val();
         let selectImg = $(this).find(":selected").attr("id");
         // console.log($(this).find(":selected").attr("id"));
