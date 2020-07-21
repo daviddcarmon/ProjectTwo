@@ -1,4 +1,4 @@
-// const db = require("../../models");
+
 
 $(document).ready(function () {
   // console.log('api.js')
@@ -44,8 +44,9 @@ $(document).ready(function () {
         let healthTxt = `Health: ${player.health}`;
         let health = $("<div>").text(healthTxt).attr({ class: "randomHealth" });
         let img = $("<img>").attr("src", player.image);
+        img.attr("class","img-fluid player-icon")
         let card = $("<section>").attr({
-          class: "card col-md-4",
+          class: "card col-md-4 player-card",
           id: player.name,
         });
 
@@ -144,6 +145,7 @@ $(document).ready(function () {
       /// dummy button and display code
       let button = $("<button>")
         .attr({ class: "btn", id: "test" })
+        .attr("class","gameBtn")
         .text("Randomize");
       $(".ranBtn").append(button);
 
