@@ -1,3 +1,5 @@
+// const db = require("../../models");
+
 $(document).ready(function () {
   // console.log('api.js')
   // needs to come from database $(".userChar")
@@ -22,8 +24,6 @@ $(document).ready(function () {
         $(this).val();
         $(this).attr("id");
       }
-
-      // returns names only
 
       let mapArray = res.map((res) => {
         let health = 100;
@@ -56,23 +56,29 @@ $(document).ready(function () {
       let index = Math.floor(Math.random() * 25);
       let index2 = Math.floor(Math.random() * Math.random() * 25);
       let randomChar = mapArray[index];
-      let playerTwoChar = mapArray[index2];
-
+    
       let playBtnStart = () => {
         $("#play").on("click", () => {
+          // userAttack
           // console.log(typeof randomChar.health);
           let healthInt = parseInt(randomChar.health);
-          let userAttackInt = playerTwoChar.attack;
-          // console.log(typeof playerTwoChar.attack);
+          let userAttackInt = userCharacter.attack;
+          // console.log(typeof userCharacter.attack);
           randomChar.health = parseInt(healthInt - userAttackInt);
 
-          // BROKEN CODE DO NOT UN-COMMENT!!!! NEEDS USER INFO FROM DATABASE(ATTACK, HEALTH)
+          // randCharAttack
           let userHealth = parseInt(userCharacter.health);
           let randCharAttack = randomChar.attack;
           userCharacter.health = parseInt(userHealth - randCharAttack);
           console.log(userCharacter);
 
           console.log(parseInt(userCharacter.health));
+
+          // db.Character.update({
+          //   health: userCharacter.health
+          // }, {
+          //   where:{UserId: req.params.id}
+          // })
 
           if (randomChar.health <= 0) {
             let winnerText = $("div>").text("WINNER!");
