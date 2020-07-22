@@ -1,19 +1,8 @@
 
 <header class="masthead" id="duelApp">
- {{!-- <h1 class="mx-auto my-0">Prepare to Duel</h1> --}}
-
 <ul class="nav justify-content-end">
-  {{!-- <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li> --}}
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    <a class="navbar-brand" href="/logout">Logout</a>
   </li>
 </ul>
  <h1 class="mx-auto my-0 text-center">Prepare to Duel</h1>
@@ -35,9 +24,7 @@
     <div class="row">
         {{!-- current player --}}
         <div class="col">
-            
-            <div class="winner"></div>
-            <div class="userChar">
+            <div class="row">  <div class="userChar">
                 <section class="card col-md-4 player-card">
                 <image class="userImage" src="{{character.image}}">
 
@@ -52,21 +39,25 @@
                         Attack: {{character.attack}}
                     </div>
                 </section>
-            </div>
+                   <div class="winner"></div>
+            </div></div>
+         
+          
            
    
         </div>
         {{!-- enemy --}}
         <div class="col">
-            <form action="">
+
+            <div class="randChar"></div>
+            <div class="col"><form action="">
                 <select class="charList" name="test" id="">
                     <option value="" selected>Select</option>
                 </select>
             </form>
             <div class="ranBtn">
-            </div>
-
-            <div class="randChar"></div>
+            </div></div>
+            
 
         </div>
 
@@ -78,7 +69,7 @@
     {{!-- footer --}}
     <div class="row">
         <footer class="footer bg-black small text-center text-white-50">
-      <div class="container">Gabriella Trujillo-Robnett | Brittanie Barrett | David Cameron | Aaron Howard</div>
+      <div class="container">Gabriella Trujillo-Robnett | Brittanie Barrett | David Carmona | Aaron Howard</div>
     </footer>
     </div>
 
