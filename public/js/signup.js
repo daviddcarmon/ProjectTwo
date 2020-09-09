@@ -80,7 +80,7 @@ $(document).ready(function () {
   // create character list api call for drop down
 
   function createCharacters() {
-    const queryURL = "http://hp-api.herokuapp.com/api/characters/";
+    const queryURL = "https://hp-api.herokuapp.com/api/characters/";
 
     $.ajax({
       url: queryURL,
